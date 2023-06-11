@@ -26,10 +26,10 @@ model User {
 }
 
 model Preferences {
-  id           Int     @id
-  emailUpdates Boolean
-  user         User    @relation(fields: [userId], references: [userId])
-  userId       Int     @unique
+  id           Int     @id @default(autoincrement())
+  emailUpdates Boolean 
+  user         User?    @relation(fields: [userId], references: [userId])
+  userId       Int    @unique @default(autoincrement())
 
   @@unique([id, userId])
 }
