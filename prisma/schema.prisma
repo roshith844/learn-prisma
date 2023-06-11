@@ -14,6 +14,7 @@ model User {
   userId      Int          @id @default(autoincrement())
   name        String
   email       String
+  role        Role         @default(USER)
   isAdmin     Boolean
   preferences Preferences?
 
@@ -48,4 +49,9 @@ model Post {
 model category {
   id    Int    @id @default(autoincrement())
   posts Post[]
+}
+
+enum Role {
+   ADMIN 
+   USER 
 }
